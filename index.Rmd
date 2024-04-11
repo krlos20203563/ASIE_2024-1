@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <center>
 
-<h1>Estadística para el Análisis Político 2</h1>
+<h1>Analítica Social e Inteligencia Estratégica</h1>
 
 </center>
 
@@ -90,14 +90,18 @@ library(ggplot2)
 library(ggthemes)
 
 # Crear el gráfico de líneas
+library(ggplot2)
+
 ggplot(EdadxYear, aes(x = year, y = media)) +
   geom_line(color = "blue", size = 1.5) +
-  geom_point(color = "red", size = 3) +  # Añadir puntos para resaltar los valores
+  geom_point(color = "red", size = 3) +  
   labs(title = "Edad promedio de personas contagiadas de dengue por año",
        x = "Año",
        y = "Edad") +
- theme_economist()
-theme(legend.key.size = unit(1, "lines"))
+  theme_economist() +
+  theme(legend.key.size = unit(1, "lines"),  # Tamaño de la leyenda
+        plot.title = element_text(size = 10))  # Tamaño del título
+
 ```
 
 
