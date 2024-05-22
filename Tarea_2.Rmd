@@ -8,7 +8,7 @@ output:
     toc_float: true
     collapsed: false
     number_sections: false
-    toc_depth: 1
+    toc_depth: 3
     code_download: true
     theme: flatly
     highlight: textmate
@@ -33,7 +33,7 @@ rivers=read_sf(linkWorld_gpkg,layer="riverLines")
 cities=read_sf(linkWorld_gpkg,layer="cityPoints")
 ```
 
-
+##Mapa del mundo
 ```{r}
 library(plotly)
 
@@ -57,27 +57,97 @@ final
 # Ejercicio 2
 
 ```{r}
-rm(list = ls())
 library(sf)
-peru_gpkg=""
+peru_gpkg="https://github.com/krlos20203563/ASIE_2024-1/raw/main/data_TA2/maps/peru.gpkg"
 sf::st_layers(peru_gpkg)
 ```
 
 ```{r}
 library(sf)
-peru=read_sf(peru_gpkg,layer="countryBorders")
-peru_rivers=read_sf(peru_gpkg,layer="riverLines")
-peru_cities=read_sf(peru_gpkg,layer="cityPoints")
+peru=read_sf(peru_gpkg,layer="peruBorders")
+peru_rivers=read_sf(peru_gpkg,layer="peruRivers")
+peru_cities=read_sf(peru_gpkg,layer="peruCities")
+```
+
+## Mapa del Perú
+```{r}
+basePeru <- plot_ly() %>%
+  add_sf(data = peru, fill = I('grey90'), color = I('black'), name = 'Countries', text = ~COUNTRY, hoverinfo = 'text')
+
+peruMap <- basePeru %>%
+  add_sf(data = peru_rivers, color = I('blue'), name = 'Rivers', text = ~NAME, hoverinfo = 'text', inherit = FALSE) %>%
+  add_sf(data = peru_cities, color = I('red'), name = 'Cities', text = ~NAME, hoverinfo = 'text', inherit = FALSE) %>%
+  layout(
+    title = 'Mapa interactivo',
+    xaxis = list(title = 'Longitud'),
+    yaxis = list(title = 'Latitud'),
+    plot_bgcolor = 'lightgrey'
+  )
+
+peruMap
 ```
 
 
 
+#Ejercicio 3
+
+```{r}
+link_rpy_gpkg="https://github.com/SocialAnalytics-StrategicIntelligence/GeoDFBasics_py/raw/main/maps/peruMap_5389.gpkg"
+sf::st_layers(link_rpy_gpkg)
+```
+
+```{r}
+peru_rep=read_sf(link_rpy_gpkg,layer="border")
+peru_rivers_rep=read_sf(link_rpy_gpkg,layer="rivers")
+peru_cities_rep=read_sf(link_rpy_gpkg,layer="cities")
+peru_airports=read_sf(link_rpy_gpkg,layer="airports")
+```
+
+## Mapa del Perú con aeropuertos
+
+```{r}
+base_PE_aeropuertos <- plot_ly() %>%
+  add_sf(data = peru_rep, fill = I('grey90'), color = I('black'), name = 'Countries', text = ~COUNTRY, hoverinfo = 'text')
+
+peruMap_air <- base_PE_aeropuertos %>%
+  add_sf(data = peru_rivers_rep, color = I('blue'), name = 'Rivers', text = ~NAME, hoverinfo = 'text', inherit = FALSE) %>%
+  add_sf(data = peru_cities_rep, color = I('red'), name = 'Cities', text = ~NAME, hoverinfo = 'text', inherit = FALSE) %>%
+  add_sf(data = peru_airports, color = I('green'), name = 'Airports', text = ~name, hoverinfo = 'text', inherit = FALSE) %>%
+  layout(
+    title = 'Mapa interactivo',
+    xaxis = list(title = 'Longitud'),
+    yaxis = list(title = 'Latitud'),
+    plot_bgcolor = 'lightgrey'
+  )
+
+peruMap_air
+```
+
+# Ejercicio 4
 
 
+https://github.com/krlos20203563/ASIE_2024-1/raw/main/data_TA2/maps/america_frag.gpkg
+```{r}
+library(sf)
+america_gpkg="https://github.com/krlos20203563/ASIE_2024-1/raw/main/data_TA2/maps/america_frag.gpkg"
+sf::st_layers(america_gpkg)
+```
 
+```{r}
+america=read_sf(america_gpkg,layer="fragility")
+```
 
-
-
+```{r}
+centroids <- st_centroid(america)
+```
+```{r}
+ggplot(data = america) +
+  geom_sf() +
+  geom_sf(data = centroids, aes(color = Total_ei5_cat), size = 3) +
+  scale_color_viridis_d(name = "Fragility (Total_ei5)") +
+  theme_minimal() +
+  labs(title = "Fragility of American Countries (2020)")
+```
 
 
 
