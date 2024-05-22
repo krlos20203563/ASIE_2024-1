@@ -1,0 +1,86 @@
+---
+title: "Tarea 2"
+author: "Carlos Crespín"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    code_download: true
+    theme: flatly
+    highlight: textmate
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Ejercicio 1
+```{r}
+rm(list = ls())
+library(sf)
+linkWorld_gpkg="https://github.com/krlos20203563/ASIE_2024-1/raw/main/data_TA2/maps/worldMap.gpkg"
+sf::st_layers(linkWorld_gpkg)
+```
+
+```{r}
+countries=read_sf(linkWorld_gpkg,layer="countryBorders")
+rivers=read_sf(linkWorld_gpkg,layer="riverLines")
+cities=read_sf(linkWorld_gpkg,layer="cityPoints")
+```
+
+
+```{r}
+library(plotly)
+
+baseLayer <- plot_ly() %>%
+  add_sf(data = countries, fill = I('grey90'), color = I('black'), name = 'Countries', text = ~COUNTRY, hoverinfo = 'text')
+
+final <- baseLayer %>%
+  add_sf(data = rivers, color = I('blue'), name = 'Rivers', text = ~NAME, hoverinfo = 'text', inherit = FALSE) %>%
+  add_sf(data = cities, color = I('red'), name = 'Cities', text = ~NAME, hoverinfo = 'text', inherit = FALSE) %>%
+  layout(
+    title = 'Mapa interactivo',
+    xaxis = list(title = 'Longitud'),
+    yaxis = list(title = 'Latitud'),
+    plot_bgcolor = 'lightgrey'
+  )
+
+final
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
