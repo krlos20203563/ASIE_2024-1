@@ -54,9 +54,21 @@ final
 ```
 
 
+# Ejercicio 2
 
+```{r}
+rm(list = ls())
+library(sf)
+peru_gpkg=""
+sf::st_layers(peru_gpkg)
+```
 
-
+```{r}
+library(sf)
+peru=read_sf(peru_gpkg,layer="countryBorders")
+peru_rivers=read_sf(peru_gpkg,layer="riverLines")
+peru_cities=read_sf(peru_gpkg,layer="cityPoints")
+```
 
 
 
