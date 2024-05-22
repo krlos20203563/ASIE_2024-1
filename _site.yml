@@ -1,0 +1,21 @@
+name: "prueba1"
+output_dir: "."
+navbar:
+  title: "Prueba1"
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Lenguaje de R"
+      href: El-lenguaje-de-R_F.html
+    - text: "Limpieza de datos"
+      href: Limpieza-de-datos_F.html
+    - text: "Operaciones básicas de R"
+      href: Operaciones-Básicas-de-R_F.html
+    - text: "Tipos y estructuras de datos"
+      href: Tipo-y-estructuras-de-datos_F.html
+    - text: "Tablas I"
+      href: Tablas-I_F.html
+    - text: Tablas III
+      href: Tablas-III_F.html
+    - text: "Cargar y guardar datos en R"
+      href: Cargar-y-guardar-datos-en-R_F.html
