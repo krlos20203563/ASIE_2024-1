@@ -1,14 +1,14 @@
-name: "prueba1"
+name: "Analítica Social e Inteligencia Estratégica"
 output_dir: "."
 navbar:
-  title: "Prueba1"
+  title: "Analítica Social e Inteligencia Estratégica"
   right:
     - text: "Home"
       href: index.html
     - text: "Tarea_1"
       href: Tarea_1.html
     - text: "Tarea_2"
-      href: Tarea_2".html
+      href: Tarea_2.html
     - text: "Tarea_2_py"
       href: Tarea_2_py.html
     - text: "Tarea_3_y"
