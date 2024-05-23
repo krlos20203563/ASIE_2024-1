@@ -1,0 +1,135 @@
+---
+title: "Indice"
+author: "Carlos Crespín"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 3
+    code_download: true
+    theme: flatly
+    highlight: textmate
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Esta página web fue creada con el objetivo de unificar la información y las tareas
+del curso Analítica Social e Inteligencia Estratégica de la Facultad de Ciencias
+Sociales de la Pontificia Universidad Católica del Perú
+
+# Tarea 1
+
+Esta tarea abarca temas introductorios sobre el manejo tanto de Python como de 
+RStudio
+
+# Tarea 2
+
+Esta tarea tiene como objetivo el análisis de mapas, coropletas, georreferencia,
+reproyección y creación de data espacial
+
+# Tarea 3
+
+Esta tarea se centró en el análisi de grafos y así entender las relaciones entre
+distintos nodos
+
+# Tarea 4
+
+Esta tarea tiene como objetivo reforzar los aprendizajes acerca de los textos 
+o el conocido lenguaje de procesamiento natural
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
