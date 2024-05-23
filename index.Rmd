@@ -31,7 +31,10 @@ RStudio
 # Tarea 2
 
 Esta tarea tiene como objetivo el análisis de mapas, coropletas, georreferencia,
-reproyección y creación de data espacial
+reproyección y creación de data espacial.
+
+Esta tarea se realizó a con mapas interactivos con plotly, por eso se presentará
+en otro formato
 
 # Tarea 3
 
